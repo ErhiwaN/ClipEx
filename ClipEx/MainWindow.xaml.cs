@@ -59,15 +59,61 @@ namespace ClipEx
         {
             //LoadClipboardImage(iImage);
 
+            ClipboardCheckContent();
+
             if (opBitmap.ImageFromClipboardDib() != null)
             {
                 iImage.Source = opBitmap.ImageFromClipboardDib();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Clipboard does not contain any Image", "No Image", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
-            
 
+
+        }
+
+        private void ClipboardCheckContent()
+        {
+            if (Clipboard.ContainsAudio() == true)
+            {
+                lblType.Content = "Audio";
+            }
+
+            if (Clipboard.ContainsFileDropList() == true)
+            {
+                lblType.Content = "FileDropList";
+            }
+
+            if (Clipboard.ContainsImage() == true)
+            {
+                lblType.Content = "Image";
+            }
+
+            if (Clipboard.ContainsData(DataFormats.Text) == true)
+            {
+                lblType.Content = "Text";
+            }
+
+            if (Clipboard.ContainsData(DataFormats.Rtf) == true)
+            {
+                lblType.Content = "RTF";
+            }
+
+            if (Clipboard.ContainsData(DataFormats.Html) == true)
+            {
+                lblType.Content = "HTML";
+            }
+
+            if (Clipboard.ContainsData(DataFormats.Dib) == true)
+            {
+                lblType.Content = "Dib";
+            }
+
+            if (Clipboard.ContainsData(DataFormats.SymbolicLink) == true)
+            {
+                lblType.Content = "SymbolicLink";
+            }
         }
     }
 }
