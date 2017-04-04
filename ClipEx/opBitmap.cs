@@ -20,7 +20,7 @@ namespace ClipEx
         //Palette(array of RGBQUAD)
         //Raw pixel data
 
-            //addd
+            //addddawdadw
         private ImageSource ImageFromClipboardDib()
         {
             MemoryStream ms = Clipboard.GetData("DeviceIndependentBitmap") as MemoryStream;
