@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging; //BitmapFrameclass (PresentationCore (w Pres
 
 namespace ClipEx
 {
-    class opBitmap
+    public class opBitmap
     {
 
         //File header(BITMAPFILEHEADER structure)
@@ -20,7 +20,9 @@ namespace ClipEx
         //Palette(array of RGBQUAD)
         //Raw pixel data
 
-        private ImageSource ImageFromClipboardDib()
+        
+
+        public static ImageSource ImageFromClipboardDib()
         {
             MemoryStream ms = Clipboard.GetData("DeviceIndependentBitmap") as MemoryStream;
             if (ms != null)

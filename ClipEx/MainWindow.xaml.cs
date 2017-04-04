@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices; //Marshal class (in mscorlib.dll)
+using System.IO; //MemoryStream class (in mscorlib.dll)
+using System.Windows.Media; //ImageSource class (PresentationCore (in PresentationCore.dll))
+using System.Windows; //Clipboard class (PresentationCore (w PresentationCore.dll))
+using System.Windows.Media.Imaging; //BitmapFrameclass (PresentationCore (w PresentationCore.dll))
 
 namespace ClipEx
 {
@@ -55,7 +57,9 @@ namespace ClipEx
 
         private void btLoad_Click(object sender, RoutedEventArgs e)
         {
-            LoadClipboardImage(iImage);
+            //LoadClipboardImage(iImage);
+
+            iImage.Source = opBitmap.ImageFromClipboardDib();
 
         }
     }
