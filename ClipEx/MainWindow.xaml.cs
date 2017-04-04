@@ -15,6 +15,7 @@ using System.IO; //MemoryStream class (in mscorlib.dll)
 using System.Windows.Media; //ImageSource class (PresentationCore (in PresentationCore.dll))
 using System.Windows; //Clipboard class (PresentationCore (w PresentationCore.dll))
 using System.Windows.Media.Imaging; //BitmapFrameclass (PresentationCore (w PresentationCore.dll))
+using System.Threading; //Thread class
 
 namespace ClipEx
 {
@@ -69,8 +70,15 @@ namespace ClipEx
             {
                 MessageBox.Show("Clipboard does not contain any Image", "No Image", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
+        }
 
-
+        //thread for data transfering to clipboard
+        public void SendToClipboard()
+        {
+            Thread clipboardThread = new Thread(() => Clipboard.SetText("Test!"));
+            clipboardThread.SetApartmentState(ApartmentState.STA);
+            clipboardThread.Start();
+            clipboardThread.Join();
         }
 
         private void ClipboardCheckContent()
