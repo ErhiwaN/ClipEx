@@ -59,7 +59,14 @@ namespace ClipEx
         {
             //LoadClipboardImage(iImage);
 
-            iImage.Source = opBitmap.ImageFromClipboardDib();
+            if (opBitmap.ImageFromClipboardDib() != null)
+            {
+                iImage.Source = opBitmap.ImageFromClipboardDib();
+            } else
+            {
+                MessageBox.Show("Clipboard does not contain any Image", "No Image", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            
 
         }
     }
