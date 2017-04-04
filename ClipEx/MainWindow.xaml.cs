@@ -114,6 +114,11 @@ namespace ClipEx
             {
                 lblType.Content = "SymbolicLink";
             }
+
+            if (Clipboard.ContainsData(DataFormats.Tiff) == true)
+            {
+                lblType.Content = "TIFF";
+            }
         }
     }
 }
