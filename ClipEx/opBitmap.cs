@@ -14,13 +14,11 @@ namespace ClipEx
 {
     public class opBitmap
     {
-
+        // Description 
         //File header(BITMAPFILEHEADER structure)
         //Bitmap header(BITMAPINFO structure)
         //Palette(array of RGBQUAD)
         //Raw pixel data
-
-        
 
         public static ImageSource ImageFromClipboardDib()
         {
@@ -57,7 +55,7 @@ namespace ClipEx
             return null;
         }
 
-        //Definition of the BITMAPFILEHEADER and BITMAPINFOHEADER structures :
+        //Definition of the BITMAPFILEHEADER and BITMAPINFOHEADER structures
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         private struct BITMAPFILEHEADER
         {
